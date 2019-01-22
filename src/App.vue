@@ -14,7 +14,7 @@
                       viewBox="0 0 32 32"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <title>TinyUrl</title>
+                      <title>Tiny Url -- POC</title>
                       <defs>
                         <linearGradient x1="100%" y1="0%" x2="0%" y2="100%" id="logo-gradient-b">
                           <stop stop-color="#39D8C8" offset="0%"></stop>
