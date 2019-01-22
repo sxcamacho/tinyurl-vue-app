@@ -89,6 +89,10 @@ export default {
 
 .item-url {
   font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 500px;
 }
 
 .item-tinyurl {
