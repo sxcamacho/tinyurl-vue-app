@@ -80,9 +80,10 @@ export default {
   ul li button {
     border: 1px solid #4992f0;
     border-radius: 5px;
-    color: #1274ed;
+    color: #4992f0;
     height: 30px;
     font-size: 15px;
+    background-color: transparent;
     cursor: pointer;
   }
 }
@@ -98,7 +99,7 @@ export default {
 .item-tinyurl {
   font-size: 20px;
   font-weight: bold;
-  color: #1274ed;
+  color: #202b36;
   transition: transform 1s;
 }
 

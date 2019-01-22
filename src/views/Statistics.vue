@@ -2,10 +2,10 @@
   <section class="hero text-center">
     <div class="map-box">
       <div class="info-box">
-        <a :href="statistics.tiny_url" target="_blanck">
-          <span class="item-tinyurl">{{statistics.tiny_url}}</span>
+        <span class="item-tinyurl">{{statistics.tiny_url}}</span>
+        <a :href="statistics.url" target="_blanck">
+          <span class="item-url">{{statistics.url}}</span>
         </a>
-        <span class="item-url">{{statistics.url}}</span>
       </div>
       <calendar-heatmap
         :values="statistics.dates ? statistics.dates: []"
@@ -49,7 +49,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "node_modules/vue-calendar-heatmap/dist/vue-calendar-heatmap";
 
 .map-box {
@@ -65,8 +65,7 @@ export default {
 .item-tinyurl {
   font-size: 20px;
   font-weight: bold;
-  color: #1274ed;
-  transition: transform 1s;
+  color: #202b36;
   display: block;
 }
 
