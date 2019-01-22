@@ -3,10 +3,10 @@
     <ul>
       <li v-for="(item, index) in list" :key="index">
         <div class="item-info">
-          <a :href="item.tiny_url" target="_blanck">
-            <span class="item-tinyurl" :class="{grow: copied === item.tiny_url }">{{item.tiny_url}}</span>
+          <span class="item-tinyurl" :class="{grow: copied === item.tiny_url }">{{item.tiny_url}}</span>
+          <a :href="item.url" target="_blanck">
+            <span class="item-url">{{item.url}}</span>
           </a>
-          <span class="item-url">{{item.url}}</span>
         </div>
         <div>
           <router-link :to="{ path: `/statistics/${item.tiny_id}` }">
