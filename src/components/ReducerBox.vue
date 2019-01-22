@@ -32,8 +32,7 @@ export default {
       return this.loading ? "Reducing..." : "Reduce";
     },
     isUrlValid() {
-      var regex =
-        "^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$";
+      var regex = /\b((http|https):\/\/?)[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|\/?))/g;
       var result = this.url.match(regex, "g");
       return result == null ? false : true;
     }
