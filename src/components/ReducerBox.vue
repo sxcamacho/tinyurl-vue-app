@@ -7,7 +7,9 @@
       <button
         id="button-reduce"
         class="button button-primary button-block button-shadow"
+        :class="{ 'disable-reduce': !isUrlValid }"
         @click="onClickReduceButton"
+        :disabled="!isUrlValid"
       >{{buttonText}}</button>
     </div>
   </div>
@@ -28,11 +30,19 @@ export default {
     },
     buttonText() {
       return this.loading ? "Reducing..." : "Reduce";
+    },
+    isUrlValid() {
+      var regex =
+        "^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$";
+      var result = this.url.match(regex, "g");
+      return result == null ? false : true;
     }
   },
   methods: {
     onClickReduceButton() {
-      store.dispatch("reduceUrl", this.url);
+      if (this.isUrlValid) {
+        store.dispatch("reduceUrl", this.url);
+      }
     }
   }
 };
@@ -41,5 +51,14 @@ export default {
 <style>
 #button-reduce {
   width: 150px;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+.disable-reduce {
+  filter: alpha(opacity=30);
+  opacity: 0.3;
 }
 </style>
