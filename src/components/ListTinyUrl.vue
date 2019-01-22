@@ -1,20 +1,21 @@
 <template>
   <div class="result">
     <ul>
-      <li v-for="(item, index) in list" :key="index">
+      <li v-for="(item, index) in list" :key="index" :class="{ 'is-previous': index > 0}">
         <div class="item-info">
-          <span class="item-tinyurl" :class="{grow: copied === item.tiny_url }">{{item.tiny_url}}</span>
+          <span class="item-tinyurl" :class="{grow: copied === item.tiny_url && index === 0 }">{{item.tiny_url}}</span>
           <a :href="item.url" target="_blanck">
             <span class="item-url">{{item.url}}</span>
           </a>
         </div>
-        <div>
+        <div v-if="index === 0">
           <router-link :to="{ path: `/statistics/${item.tiny_id}` }">
             <span class="item-views">{{item.count}} requests</span>
           </router-link>
         </div>
         <button
           type="button"
+          v-if="index === 0"
           v-clipboard:copy="item.tiny_url"
           v-clipboard:success="onCopy"
           v-clipboard:error="onError"
@@ -64,7 +65,7 @@ export default {
 
   ul li {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: left;
     padding: 20px;
   }
 
@@ -117,5 +118,10 @@ export default {
   -webkit-transform: rotateX(360deg);
   -ms-transform: rotateX(360deg);
   transform: rotateX(360deg);
+}
+
+.is-previous {
+  filter: alpha(opacity=20);
+  opacity: 0.2;
 }
 </style>
